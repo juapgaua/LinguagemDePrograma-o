@@ -1,0 +1,27 @@
+/*
+6. O que será escrito pelo programa abaixo?
+  #include <iostream>
+  #include <cstdlib>
+  
+  int teste() {
+    const int ESC = 033, ENTER = 0XD;
+    std::cout << "ESC: " << ESC << std::endl << "ENTER: " << ENTER;
+    return EXIT_SUCCESS;
+  }
+  
+  int main() {
+    return teste();
+  }
+*/
+
+/*
+O programa em C++ que você forneceu define duas constantes, ESC e ENTER, e em seguida, 
+imprime o valor dessas constantes na saída padrão usando std::cout. O valor das constantes é definido em notação octal.
+
+A constante ESC é definida como 033 em notação octal, que é equivalente a 27 em decimal.
+A constante ENTER é definida como 0XD em notação octal, que é equivalente a 13 em decimal.
+Portanto, quando o programa é executado, ele imprimirá:
+
+ESC=27
+ENTER=13
+*/
