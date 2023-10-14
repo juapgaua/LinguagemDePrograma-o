@@ -1,0 +1,79 @@
+/*
+5. Escreva um programa que leia um número inteiro positivo de no máximo cinco dígitos do sistema
+decimal (base 10) e converta para o sistema binário (base 2) usando somente os operadores bit a
+bit do C++.
+*/
+
+//conversor.h
+#pragma once
+#ifndef CONVERSOR_H
+#define CONVERSOR_H
+
+#include <string>
+
+std::string decimalParaBinario(int numero);
+
+#endif
+
+//conversor.cpp
+#include "conversor.h"
+
+std::string decimalParaBinario(int numero) {
+    std::string binario = "";
+
+    if (numero == 0) {
+        binario = "0";
+    }
+    else {
+        while (numero > 0) {
+            binario = (numero % 2 == 0 ? "0" : "1") + binario;
+            numero >>= 1;  // Shift right (equivalente a divisão por 2)
+        }
+    }
+
+    return binario;
+}
+/*
+binario = (numero % 2 == 0 ? "0" : "1") + binario;
+
+numero % 2 == 0 verifica se o número é par. Se o resultado dessa expressão for verdadeiro, significa que o último dígito do número é 0, 
+indicando que o número em binário também terminará com 0.
+O operador ternário ? é usado para determinar se o último dígito é 0 ou 1. Se for verdadeiro (ou seja, se o número for par), ele atribui "0" a binario, 
+caso contrário (se o número for ímpar), atribui "1".
+Em seguida, concatena a string binario à esquerda dessa nova string (representando o dígito binário recém-encontrado). 
+Isso é feito para manter a representação binária em ordem correta. O operador + é usado para concatenar as strings.
+Em resumo, esta linha de código está convertendo o último dígito do número decimal para seu equivalente binário (0 para par, 1 para ímpar) 
+e adicionando esse dígito à representação binária existente (binario) na posição mais à esquerda. Em seguida, ele passa para o próximo dígito do número decimal dividindo-o por 2.
+
+numero >>= 1;
+Essa linha é responsável por dividir o número decimal por 2, o que é essencial na conversão para binário. 
+Isso é feito com o operador de deslocamento à direita (>>=), que é uma operação bit a bit.
+A operação numero >>= 1 é equivalente a dividir numero por 2. Ela move todos os bits de numero uma posição à direita, o que é o mesmo que dividir o número por 2 
+e descartar qualquer resto decimal.
+*/
+
+//main.cpp
+#include <iostream>
+#include <clocale>
+#include "conversor.h"
+
+using namespace std;
+
+int main() {
+    setlocale(LC_ALL, "pt-BR");
+    int numero;
+
+    cout << "Digite um número decimal positivo de no máximo cinco dígitos: ";
+    cin >> numero;
+
+    if (numero < 0 || numero > 99999) {
+        cout << "Número fora do intervalo permitido." << endl;
+        return 1;
+    }
+
+    string binario = decimalParaBinario(numero);
+
+    cout << "O número em binário é: " << binario << endl;
+
+    return 0;
+}
