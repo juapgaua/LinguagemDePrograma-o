@@ -1,0 +1,33 @@
+/*1. Quais são os valores de cada variável após a execução das expressões? Considere sempre os
+mesmos valores iniciais das variáveis.
+int a = 1, b = 2, c = 3, d = 4;*/
+
+//ex01.h
+
+#pragma once
+int exercicio1();
+
+//ex01.cpp
+#include <iostream>     
+#include <clocale>
+#include "ex01.h"
+
+using namespace std;
+
+int exercicio1(){
+    setlocale(LC_ALL, "pt-br");
+
+    int a = 1, b = 2, c = 3, d = 4;
+
+    cout << "A) a+=b+c = " << (a = +b + c) << endl;
+    cout << "B) b*=c=d+2 = " << (b *= (c = d + 2)) << endl;
+    cout << "C) d%=a+a+a = " << (d %= (a + a + a)) << endl;
+    cout << "D) d-=c-=b-=a = " << (d -= (c -= (b -= a))) << endl;
+    cout << "E) a+=b+=c+=7 = " << (a += (b += (c += 7))) << endl;
+ 
+    return EXIT_SUCCESS;
+}
+
+int main() {
+    return exercicio1();
+}
