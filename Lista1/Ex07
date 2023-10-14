@@ -1,0 +1,77 @@
+/*
+7- Escreva um programa que leia um número inteiro positivo de no máximo quatro dígitos do sistema
+hexadecimal (base 16) e converta-o para o sistema binário (base 2) usando somente os operadores
+bit a bit do C++.
+*/
+
+//hexToBinary.h
+#pragma once
+#ifndef HEXTOBINARY_H
+#define HEXTOBINARY_H
+
+#include <string>
+
+//A funçao aceita um argumento que é uma string hexadecimal fonecida como referencia constante.
+std::string hexToBinary(const std::string& hex);
+
+#endif
+
+//hexToBinary.cpp
+#include "hexToBinary.h"
+
+std::string hexToBinary(const std::string& hex) {
+    //cria uma string vazia que será usada para armazenar a representação binária do número hexadecimal
+    std::string binary = "";
+    //Loop for que irá percorrer cada caractere 'c' na string 'hex', verificando se é um digito válido e convertendo em inteiro
+    for (char c : hex) {
+        int digit;
+        if (c >= '0' && c <= '9') {
+            digit = c - '0';
+        }
+        else if (c >= 'A' && c <= 'F') {
+            digit = 10 + (c - 'A');
+        }
+        else if (c >= 'a' && c <= 'f') {
+            digit = 10 + (c - 'a');
+        }
+        else {
+            return "Invalid Hexadecimal Digit";
+        }
+        //Loop aninhado que converte o valor numérico digit em uma representação binária. O operador >> realiza um deslocamento à direita para extrair cada bit individualmente
+        //e o operador '&' é usado para mascarar o resultado com 1 para obter o valor do bit.
+        for (int i = 3; i >= 0; --i) {
+            int bit = (digit >> i) & 1;
+            binary += std::to_string(bit);
+        }
+    }
+    return binary;
+}
+
+//main.cpp
+#include <iostream>
+#include <clocale>
+#include "hexToBinary.h"
+
+using namespace std;
+
+int main() {
+    setlocale(LC_ALL, "pt-BR");
+    string hex;
+    cout << "Digite um número hexadecimal de até quatro dígitos: ";
+    cin >> hex;
+
+    if (hex.size() > 4) {
+        cout << "Número hexadecimal deve ter no máximo quatro dígitos." << endl;
+        return 1;
+    }
+
+    string binary = hexToBinary(hex);
+    if (binary == "Invalid Hexadecimal Digit") {
+        cout << "Dígito hexadecimal inválido." << endl;
+    }
+    else {
+        cout << "O número binário correspondente é: " << binary << endl;
+    }
+
+    return 0;
+}
