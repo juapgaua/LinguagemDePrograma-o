@@ -1,0 +1,65 @@
+/*
+8. Desenvolva um programa que leia um número inteiro para calcular a multiplicação e a divisão
+desse número por 2 e 4 usando apenas os operadores bit a bit de deslocamento a esquerda e a
+direita do C++.
+*/
+
+#pragma once
+// calculadora.h
+#ifndef CALCULADORA_H
+#define CALCULADORA_H
+
+class Calculadora {
+public:
+    static int multiplicarPorDois(int numero);
+    static int multiplicarPorQuatro(int numero);
+    static int dividirPorDois(int numero);
+    static int dividirPorQuatro(int numero);
+};
+
+#endif
+
+// calculadora.cpp
+#include "calculadora.h"
+
+int Calculadora::multiplicarPorDois(int numero) {
+    return numero << 1;
+}
+
+int Calculadora::multiplicarPorQuatro(int numero) {
+    return numero << 2;
+}
+
+int Calculadora::dividirPorDois(int numero) {
+    return numero >> 1;
+}
+
+int Calculadora::dividirPorQuatro(int numero) {
+    return numero >> 2;
+}
+// main.cpp
+#include <iostream>
+#include "calculadora.h"
+#include <clocale>
+
+using namespace std;
+
+int main() {
+    setlocale(LC_ALL, "pt-BR");
+    int numero;
+
+    cout << "Digite um número inteiro: ";
+    cin >> numero;
+
+    int resultado1 = Calculadora::multiplicarPorDois(numero);
+    int resultado2 = Calculadora::multiplicarPorQuatro(numero);
+    int resultado3 = Calculadora::dividirPorDois(numero);
+    int resultado4 = Calculadora::dividirPorQuatro(numero);
+
+    cout << "Resultado multiplicação por 2: " << resultado1 << endl;
+    cout << "Resultado multiplicação por 4: " << resultado2 << endl;
+    cout << "Resultado divisão por 2: " << resultado3 << endl;
+    cout << "Resultado divisão por 4: " << resultado4 << endl;
+
+    return 0;
+}
