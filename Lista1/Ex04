@@ -1,0 +1,81 @@
+/*
+4. Escreva um programa que traduza as seguintes expressões matemáticas para C++.
+*/
+
+//math_functions.h
+#pragma once
+#ifndef MATH_FUNCTIONS_H
+#define MATH_FUNCTIONS_H
+
+class MathFunctions {
+public:
+    static double calculateExpressionA(double x, double y);
+    static double calculateExpressionB(double a, double b);
+    static double calculateExpressionC(double a, double b, double c, double d, double x);
+    static double calculateExpressionD(double x, double y);
+    static double calculateExpressionE(double x, double y);
+    static double calculateExpressionF(double x, double z);
+};
+
+#endif
+
+//math_functions.cpp
+#include "math_functions.h"
+#include <cmath>
+
+const double e = 2.718281828459045;
+const double pi = 3.141592653589793;
+
+double MathFunctions::calculateExpressionA(double x, double y) {
+    return x + std::pow(y, 3);
+}
+
+double MathFunctions::calculateExpressionB(double a, double b) {
+    return 3 * std::pow(a, 5) - std::sqrt(a / (a + b));
+}
+
+double MathFunctions::calculateExpressionC(double a, double b, double c, double d, double x) {
+    return a + b * x + c * std::pow(x, 2) + d * std::pow(x, 3);
+}
+
+double MathFunctions::calculateExpressionD(double x, double y) {
+    return std::exp(x) + y + pi;
+}
+
+double MathFunctions::calculateExpressionE(double x, double y) {
+    return std::pow(x, y) + std::pow(x, y - 2);
+}
+
+double MathFunctions::calculateExpressionF(double x, double z) {
+    return x * std::log(x) / (std::pow(z, 3) * x);
+}
+
+//main.cpp
+#include <iostream>
+#include "math_functions.h"
+
+int main() {
+    double x=1, y=2, z=3, a=4, b=5, c=6, d=7;
+
+    // Defina os valores de x, y, a, b, c, d conforme necessário
+
+    z = MathFunctions::calculateExpressionA(x, y);
+    std::cout << "Resultado (a): z = " << z << std::endl;
+
+    x = MathFunctions::calculateExpressionB(a, b);
+    std::cout << "Resultado (b): x = " << x << std::endl;
+
+    x = MathFunctions::calculateExpressionC(a, b, c, d, x);
+    std::cout << "Resultado (c): x = " << x << std::endl;
+
+    z = MathFunctions::calculateExpressionD(x, y);
+    std::cout << "Resultado (d): z = " << z << std::endl;
+
+    z = MathFunctions::calculateExpressionE(x, y);
+    std::cout << "Resultado (e): z = " << z << std::endl;
+
+    y = MathFunctions::calculateExpressionF(x, z);
+    std::cout << "Resultado (f): y = " << y << std::endl;
+
+    return 0;
+}
