@@ -1,0 +1,38 @@
+/*
+3. Qual é o valor da expressão abaixo?
+int a = 1, b = 2, c = 3;
+++a / a && !b && c || b-- || -a + 4 * c > !!b
+*/
+
+//ex03.h
+
+#pragma once
+#ifndef EX03_H
+#define EX03_H
+
+int resolveExpressao(int a, int b, int c);
+
+#endif
+
+//ex03.cpp
+
+#include <iostream>
+#include "Ex03.h"
+
+int resolveExpressao(int a, int b, int c) {
+    return (++a / a) && !b && c || b-- || -a + 4 * c > !!b;
+}
+
+//main.cpp
+#include <iostream>
+#include "Ex03.h" // Inclui o arquivo de cabeçalho
+
+int main() {
+    int a = 1, b = 2, c = 3;
+
+    int resultado = resolveExpressao(a, b, c);
+
+    std::cout << "Resultado da expressão: " << resultado << std::endl;
+
+    return 0;
+}
