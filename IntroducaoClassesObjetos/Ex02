@@ -1,0 +1,77 @@
+/*
+2. Defina uma classe chamada Pixel para armazenar os valores positivos das coordenadas x e y de um
+pixel (ponto) da tela do monitor de vídeo. Use o tipo de dado unsigned int para representar as
+coordenadas do pixel, use o encapsulamento (ocultamento de informações) e inclua na classe:
+a) dois construtores: o default e um sobrecarregado que recebe as coordenadas x e y do ponto;
+b) um método que obtém a coordenada x (getX) e outro que obtém a coordenada y (getY);
+c) um método para modificar o valor da coordenada x (setX) e outro para alterar o valor da
+coordenada y (setY).
+d) um método chamado toString para retornar a representação string das coordenadas x e y do
+ponto usando o formato P(x,y).
+*/
+
+//pixel.h
+#pragma once
+#ifndef PIXEL_H
+#define PIXEL_H
+
+#include <string>
+
+class Pixel {
+public:
+    // Construtor padrão
+    Pixel();
+
+    // Construtor sobrecarregado que recebe as coordenadas x e y
+    Pixel(unsigned int x, unsigned int y);
+
+    // Métodos para obter as coordenadas x e y
+    unsigned int getX() const;
+    unsigned int getY() const;
+
+    // Métodos para modificar as coordenadas x e y
+    void setX(unsigned int x);
+    void setY(unsigned int y);
+
+    // Método para retornar a representação string das coordenadas
+    std::string toString() const;
+
+private:
+    unsigned int x;
+    unsigned int y;
+};
+
+#endif
+
+//pixel.cpp
+#include "Pixel.h"
+
+// Construtor padrão
+Pixel::Pixel() : x(0), y(0) {}
+
+// Construtor sobrecarregado
+Pixel::Pixel(unsigned int x, unsigned int y) : x(x), y(y) {}
+
+// Métodos para obter as coordenadas x e y
+unsigned int Pixel::getX() const {
+    return x;
+}
+
+unsigned int Pixel::getY() const {
+    return y;
+}
+
+// Métodos para modificar as coordenadas x e y
+void Pixel::setX(unsigned int x) {
+    this->x = (x >= 0) ? x : 0;
+}
+
+void Pixel::setY(unsigned int y) {
+    this->y = (y >= 0) ? y : 0;
+}
+
+// Método para retornar a representação string das coordenadas
+std::string Pixel::toString() const {
+    return "P(" + std::to_string(x) + "," + std::to_string(y) + ")";
+}
+
