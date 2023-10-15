@@ -1,0 +1,110 @@
+/*
+4. Crie uma classe denominada Livro com os seguintes atributos privados: código, título e o preço do
+livro; nome do autor e da editora. Use o encapsulamento nessa classe e inclua os métodos a
+seguir:
+a) inicializar os atributos com valores default;
+b) iniciar os atributos com valores especificados pelo usuário da classe;
+c) consultar (get) e modificar (set) os atributos da classe;
+d) retornar uma representação string com os atributos do livro. Use a declaração: string toString();
+*/
+
+//livro.h
+
+#pragma once
+#ifndef LIVRO_H
+#define LIVRO_H
+
+#include <string>
+
+class Livro {
+public:
+    // Construtor padrão que inicializa os atributos com valores padrão
+    Livro();
+
+    // Construtor que inicia os atributos com valores especificados pelo usuário
+    Livro(int codigo, const std::string& titulo, double preco, const std::string& autor, 
+        const std::string& editora);
+
+    // Métodos para consultar e modificar os atributos da classe
+    int getCodigo() const;
+    void setCodigo(int codigo);
+    std::string getTitulo() const;
+    void setTitulo(const std::string& titulo);
+    double getPreco() const;
+    void setPreco(double preco);
+    std::string getAutor() const;
+    void setAutor(const std::string& autor);
+    std::string getEditora() const;
+    void setEditora(const std::string& editora);
+
+    // Método para retornar uma representação string dos atributos do livro
+    std::string toString() const;
+
+private:
+    int codigo;
+    std::string titulo;
+    double preco;
+    std::string autor;
+    std::string editora;
+};
+
+#endif
+
+//livro.cpp
+
+#include "livro.h"
+
+// Construtor padrão
+Livro::Livro() : codigo(0), titulo(""), preco(0.0), autor(""), editora("") {}
+
+// Construtor com valores especificados pelo usuário
+Livro::Livro(int codigo, const std::string& titulo, double preco, const std::string& autor, 
+    const std::string& editora) :
+    codigo(codigo), titulo(titulo), preco((preco >= 0.0) ? preco : 0.0), autor(autor), editora(editora) {}
+
+// Métodos para consultar e modificar os atributos da classe
+int Livro::getCodigo() const {
+    return codigo;
+}
+
+void Livro::setCodigo(int codigo) {
+    this->codigo = (codigo >= 0) ? codigo : 0;
+}
+
+std::string Livro::getTitulo() const {
+    return titulo;
+}
+
+void Livro::setTitulo(const std::string& titulo) {
+    this->titulo = titulo;
+}
+
+double Livro::getPreco() const {
+    return preco;
+}
+
+void Livro::setPreco(double preco) {
+    this->preco = (preco >= 0.0) ? preco : 0.0;
+}
+
+std::string Livro::getAutor() const {
+    return autor;
+}
+
+void Livro::setAutor(const std::string& autor) {
+    this->autor = autor;
+}
+
+std::string Livro::getEditora() const {
+    return editora;
+}
+
+void Livro::setEditora(const std::string& editora) {
+    this->editora = editora;
+}
+
+// Método para retornar uma representação string dos atributos do livro
+std::string Livro::toString() const {
+    return "Código: " + std::to_string(codigo) + "\nTítulo: " + titulo + "\nPreço: " + 
+        std::to_string(preco) + "\nAutor: " + autor + "\nEditora: " + editora;
+}
