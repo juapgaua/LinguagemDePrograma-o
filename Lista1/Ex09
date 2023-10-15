@@ -1,0 +1,503 @@
+9. Resolva os exercícios abaixo do Capítulo 2 - Introdução à programação em C++ - do livro C++
+Como Programar. 5a ed. DEITEL, H. M., DEITEL, P. J. São Paulo: Pearson Prentice Hall, 2006.
+Exercícios 2.7 a 2.25
+
+Ex. 2.7
+
+Discuta o significado de cada um dos seguintes objetos:
+a) std::cin
+b) std::cout
+
+std::cin e std::cout são objetos pertencentes à biblioteca padrão de C++ e são usados para entrada e saída de dados, respectivamente.
+
+a) std::cin:
+std::cin é um objeto da biblioteca padrão de C++ que representa a entrada padrão, que normalmente está associada ao teclado. 
+Ele é usado para receber dados do usuário ou de outras fontes de entrada. O cin é frequentemente usado com o operador de extração (>>) 
+para ler dados da entrada padrão e armazená-los em variáveis do programa. Por exemplo:
+
+int numero;
+std::cin >> numero;
+No exemplo acima, o programa aguardará o usuário inserir um número, e esse número será armazenado na variável numero.
+
+b) std::cout:
+std::cout é um objeto da biblioteca padrão de C++ que representa a saída padrão, normalmente associada ao console ou à tela. 
+Ele é usado para exibir informações e resultados para o usuário ou em outros dispositivos de saída. 
+O cout é frequentemente usado com o operador de inserção (<<) para exibir dados no console. Por exemplo:
+
+int resultado = 42;
+std::cout << "O resultado é: " << resultado << std::endl;
+Nesse caso, o programa imprimirá "O resultado é: 42" no console.
+
+Esses dois objetos são fundamentais em programas C++ para interação com o usuário e para exibir resultados. Eles são incluídos na biblioteca padrão do C++ no cabeçalho <iostream>.
+
+Ex 2.8
+
+Preencha as lacunas em cada uma das seguintes sentenças:
+
+a) Comentários são utilizados para documentar um programa e aprimorar sua legibilidade.
+b) O objeto utilizado para imprimir as informações na tela é std::cout.
+c) Uma instrução C++ que toma uma decisão é if.
+d) A maioria de cálculos é geralmente feita por instruções aritméticas.
+e) O objeto std::cin insere valores a partir do teclado.
+
+Ex 2.9
+
+Escreva uma única instrução C++ ou linha que realize cada uma das seguintes tarefas:
+
+a) Imprima a mensagem "Entre com dois números":
+std::cout << "Entre com dois números" << std::endl;
+
+b) Atribua o produto de variáveis b e c para a variável a:
+a = b * c;
+
+c) Declare que um programa realiza um cálculo de folha de pagamento:
+// Este programa realiza o cálculo de folha de pagamento
+
+d) Insira três valores de inteiro a partir do teclado nas variáveis de inteiro a, b e c:
+std::cin >> a >> b >> c;
+
+Ex 2.10
+
+Determine quais das seguintes sentenças são verdadeiras e quais são falsas. Se falsa, explique suas respostas.
+
+a) Operadores C++ são avaliados da esquerda para a direita.
+Falsa. Em C++, a ordem de avaliação dos operadores depende do operador específico e de sua precedência. 
+Alguns operadores, como os operadores aritméticos, são avaliados da esquerda para a direita. 
+No entanto, operadores como o operador de atribuição (=) ou o operador de incremento/decremento (++ e --) podem ter um comportamento diferente.
+
+b) Todos os seguintes nomes de variável são válidos: _under_bar_, m928134, t5, j7, her_sales, his_account_total, a, b, c, z, z2.
+Verdadeira
+
+c) A instrução cout << “a = 5;”; é um exemplo típico de uma instrução de atribuição.
+Falsa. A instrução cout << "a = 5;"; não é uma instrução de atribuição. Ela é uma instrução de saída que exibirá o texto "a = 5;" no console. 
+Para uma instrução de atribuição, você usaria o operador de atribuição, como em a = 5;.
+
+d) Uma expressão aritmética em C++ válida sem parênteses é avaliada da esquerda para a direita.
+Falsa. A ordem de avaliação de uma expressão aritmética em C++ segue as regras da precedência de operadores. 
+Isso significa que a expressão será avaliada de acordo com a precedência dos operadores, e não necessariamente da esquerda para a direita. 
+Parênteses podem ser usados para forçar a ordem desejada de avaliação.
+
+e) Todos os seguintes nomes de variável são inválidos: 3g, 87, 67h2, h22, 2h.
+Verdadeira
+
+Ex 2.11
+
+Preencha as lacunas em cada uma das seguintes sentenças:
+
+a) Que operações aritméticas estão no mesmo nível de precedência que a multiplicação?
+A multiplicação é do mesmo nível de precedência que a divisão.
+
+b) Quando os parênteses são aninhados, qual conjunto de parênteses é avaliado primeiro em uma expressão aritmética?
+Os parênteses internos (mais aninhados) são avaliados primeiro.
+
+c) Uma posição na memória do computador que pode conter valores diferentes em várias vezes por toda a execução de um programa é chamada de variável.
+
+Ex 2.12
+
+O que é impresso, se algo for, quando cada uma das seguintes instruções C++ é executada? Se nada for impresso, então responda “nada”.
+Assuma x = 2 e y = 3.
+
+a) cout << x; imprime o valor de x, ou seja, "2".
+
+b) cout << x + x; imprime a soma de x e x, ou seja, "4".
+
+c) cout << “x=”; imprime a string "x=".
+
+d) cout << “x = “ << x; imprime a string "x = " seguida pelo valor de x, ou seja, "x = 2".
+
+e) cout << x + y << “ = “ << y + x; imprime a soma de x e y, que é "5", seguida pela string " = ", e depois a soma de y e x, que também é "5". Portanto, a saída é "5 = 5".
+
+f) z = x + y; atribui o valor de x + y a z, mas não imprime nada no console.
+
+g) cin >> x >> y; espera que o usuário insira dois valores inteiros, que são atribuídos a x e y. Não imprime nada no console.
+
+h) // cout << "x + y = " << x + y; // torna essa linha um comentário, então nada é impresso no console.
+
+i) cout << “\n”; imprime uma nova linha em branco.
+
+Ex 2.13
+
+Qual das instruções C++ a seguir contém variáveis cujos valores são substituídos?
+
+a) cin >> b >> c >> d >> e >> f; - Nesta instrução, os valores de variáveis b, c, d, e, e f serão substituídos pelos valores que o usuário inserir a partir do teclado. 
+Portanto, essa instrução contém variáveis cujos valores são substituídos.
+
+b) p = i + j + k + 7; - Nesta instrução, o valor da variável p é substituído pelo resultado da expressão i + j + k + 7. 
+Portanto, essa instrução também contém uma variável cujo valor é substituído.
+
+c) cout << “variables whose values are replaced”; - Essa instrução imprime uma mensagem na tela, mas não realiza nenhuma substituição de valores em variáveis. 
+Portanto, não contém variáveis cujos valores são substituídos.
+
+d) cout << “a = 5”; - Esta instrução imprime a mensagem "a = 5" na tela, mas não realiza nenhuma substituição de valores em variáveis. 
+Portanto, não contém variáveis cujos valores são substituídos.
+
+Portanto, as instruções a) e b) contêm variáveis cujos valores são substituídos.
+
+Ex 2.14
+
+Dada a equação algébrica y = ax³ + 7, qual das seguintes, se houver alguma, são instruções C++ corretas para essa equação?
+a) y = a * x * x * x + 7;
+b) y = a * x * x * ( x + 7 );
+c) y = ( a * x ) * x * ( x + 7 );
+d) y = (a * x) * x * x + 7; e) y = a * ( x * x * x ) + 7;
+f) y = a * x * ( x * x + 7 );
+
+As instruções corretas são a, d e e.
+
+Ex 2.15
+
+Declare a ordem de avaliação dos operadores em cada uma das seguintes instruções C++ e mostre o valor de x depois que cada instrução é realizada.
+
+a) x = 7 + 3 * 6 / 2 - 1;
+Ordem de avaliação dos operadores:
+Multiplicação (*): 3 * 6 = 18
+Divisão (/): 18 / 2 = 9
+Adição (+): 7 + 9 = 16
+Subtração (-): 16 - 1 = 15
+Após a execução dessa instrução, x terá o valor 15.
+
+b) x = 2 % 2 + 2 * 2 - 2 / 2;
+Ordem de avaliação dos operadores:
+Módulo (%): 2 % 2 = 0
+Multiplicação (*): 2 * 2 = 4
+Divisão (/): 2 / 2 = 1
+Adição (+): 0 + 4 = 4
+Subtração (-): 4 - 1 = 3
+Após a execução dessa instrução, x terá o valor 3.
+
+c) x = (3 * 9 * (3 + (9 * 3 / (3)));
+Nesta instrução, os parênteses têm precedência mais alta e são avaliados internamente primeiro. Portanto, a ordem de avaliação é a seguinte:
+Parênteses internos mais profundos: 3
+Parênteses internos: 9 * 3 / 3 = 9
+Parênteses externos: 3 + 9 = 12
+Multiplicação (*): 3 * 9 * 12 = 324
+Após a execução dessa instrução, x terá o valor 324.
+
+Ex 2.16
+
+Escreva um programa em C++ que solicita ao usuário inserir dois números, obtém os dois números do usuário e imprime a soma, produto, diferença e quociente dos dois números.
+
+#include <iostream>
+
+int main() {
+    // Declaração das variáveis
+    double num1, num2;
+    
+    // Solicita ao usuário inserir o primeiro número
+    std::cout << "Insira o primeiro número: ";
+    std::cin >> num1;
+    
+    // Solicita ao usuário inserir o segundo número
+    std::cout << "Insira o segundo número: ";
+    std::cin >> num2;
+    
+    // Calcula e imprime a soma
+    double soma = num1 + num2;
+    std::cout << "Soma: " << soma << std::endl;
+    
+    // Calcula e imprime o produto
+    double produto = num1 * num2;
+    std::cout << "Produto: " << produto << std::endl;
+    
+    // Calcula e imprime a diferença
+    double diferenca = num1 - num2;
+    std::cout << "Diferença: " << diferenca << std::endl;
+    
+    // Verifica se o segundo número não é zero antes de calcular o quociente
+    if (num2 != 0) {
+        double quociente = num1 / num2;
+        std::cout << "Quociente: " << quociente << std::endl;
+    } else {
+        std::cout << "Não é possível calcular o quociente, pois o segundo número é zero." << std::endl;
+    }
+
+    return 0;
+}
+
+Ex 2.17
+
+Escreva um programa que imprime os números 1 a 4 na mesma linha com cada par de números adjacentes separados por um espaço. Faça isso de várias maneiras:
+
+a) Utilizando uma instrução com um operador de inserção de fluxo:
+#include <iostream>
+int main() {
+    std::cout << "1 2 3 4" << std::endl;
+    return 0;
+}
+
+b) Utilizando uma instrução com quatro operadores de inserção de fluxo:
+#include <iostream>
+int main() {
+    std::cout << "1 " << "2 " << "3 " << "4" << std::endl;
+    return 0;
+}
+
+c) Utilizando quatro instruções separadas:
+#include <iostream>
+int main() {
+    std::cout << "1 ";
+    std::cout << "2 ";
+    std::cout << "3 ";
+    std::cout << "4" << std::endl;
+    return 0;
+}
+
+Ex 2.18
+
+Escreva um programa que pede para o usuário inserir dois inteiros, obtém os números do usuário, e então imprime o maior número seguido pelas palavras “é o maior”. 
+Se os números forem iguais, imprime a mensagem “Estes números são iguais”.
+
+#include <iostream>
+
+int main() {
+    int num1, num2;
+
+    // Solicita ao usuário inserir o primeiro número
+    std::cout << "Insira o primeiro número: ";
+    std::cin >> num1;
+
+    // Solicita ao usuário inserir o segundo número
+    std::cout << "Insira o segundo número: ";
+    std::cin >> num2;
+
+    if (num1 > num2) {
+        std::cout << num1 << " é o maior." << std::endl;
+    } else if (num2 > num1) {
+        std::cout << num2 << " é o maior." << std::endl;
+    } else {
+        std::cout << "Estes números são iguais." << std::endl;
+    }
+
+    return 0;
+}
+
+Ex 2.19
+
+Escreva um programa que insere três inteiros a partir do teclado e imprime a soma, a média, o produto, o menor e o maior desses números.
+
+#include <iostream>
+
+int main() {
+    int num1, num2, num3;
+
+    // Solicita ao usuário inserir três valores inteiros
+    std::cout << "Entre com três valores inteiros: ";
+    std::cin >> num1 >> num2 >> num3;
+
+    // Calcula a soma
+    int soma = num1 + num2 + num3;
+
+    // Calcula a média
+    int media = soma / 3;
+
+    // Calcula o produto
+    int produto = num1 * num2 * num3;
+
+    // Encontra o menor número
+    int menor = num1;
+    if (num2 < menor) {
+        menor = num2;
+    }
+    if (num3 < menor) {
+        menor = num3;
+    }
+
+    // Encontra o maior número
+    int maior = num1;
+    if (num2 > maior) {
+        maior = num2;
+    }
+    if (num3 > maior) {
+        maior = num3;
+    }
+
+    // Imprime os resultados
+    std::cout << "Soma: " << soma << std::endl;
+    std::cout << "Média: " << media << std::endl;
+    std::cout << "Produto: " << produto << std::endl;
+    std::cout << "O menor: " << menor << std::endl;
+    std::cout << "O maior: " << maior << std::endl;
+
+    return 0;
+}
+
+Ex 2.20
+
+Escreva um programa que lê o raio de um círculo como um inteiro e imprime o diâmetro, a circunferência e a área do círculo. Utilize o
+valor constante 3,14159 para π. Faça todos os cálculos em instruções de saída.
+
+#include <iostream>
+
+int main() {
+    int raio;
+    const double pi = 3.14159; // Valor constante de π
+
+    // Solicita ao usuário inserir o raio do círculo
+    std::cout << "Insira o raio do círculo (inteiro): ";
+    std::cin >> raio;
+
+    // Calcula o diâmetro
+    int diametro = 2 * raio;
+
+    // Calcula a circunferência
+    double circunferencia = 2 * pi * raio;
+
+    // Calcula a área
+    double area = pi * raio * raio;
+
+    // Imprime os resultados
+    std::cout << "Diâmetro: " << diametro << std::endl;
+    std::cout << "Circunferência: " << circunferencia << std::endl;
+    std::cout << "Área: " << area << std::endl;
+
+    return 0;
+}
+
+Ex 2.21
+
+Escreva um programa que imprime uma caixa, uma oval, uma seta e um losango
+
+#include <iostream>
+
+int main() {
+    // Imprime uma caixa
+    std::cout << "Caixa:\n";
+    std::cout << "**********\n";
+    std::cout << "*        *\n";
+    std::cout << "*        *\n";
+    std::cout << "**********\n";
+
+    // Imprime uma oval
+    std::cout << "\nOval:\n";
+    std::cout << "  ******  \n";
+    std::cout << " *      * \n";
+    std::cout << "*        *\n";
+    std::cout << "*        *\n";
+    std::cout << " *      * \n";
+    std::cout << "  ******  \n";
+
+    // Imprime uma seta
+    std::cout << "\nSeta:\n";
+    std::cout << "    *    \n";
+    std::cout << "   ***   \n";
+    std::cout << "  *****  \n";
+    std::cout << "    *    \n";
+    std::cout << "    *    \n";
+
+    // Imprime um losango
+    std::cout << "\nLosango:\n";
+    std::cout << "    *    \n";
+    std::cout << "   ***   \n";
+    std::cout << "  *****  \n";
+    std::cout << " ******* \n";
+    std::cout << "  *****  \n";
+    std::cout << "   ***   \n";
+    std::cout << "    *    \n";
+
+    return 0;
+}
+
+Ex 2.22
+
+O que o seguinte código imprime?
+cout << “*\n**\n***\n****\n*****” << endl;
+
+O código cout << "*\n**\n***\n****\n*****" << endl; imprime o seguinte padrão de asteriscos (*):
+*
+**
+***
+****
+*****
+Cada linha contém um número crescente de asteriscos, de 1 a 5, e a quebra de linha (\n) separa as linhas. Portanto, o resultado é uma pirâmide de asteriscos.
+
+Ex 2.23
+
+Escreva um programa que lê cinco inteiros e determina e imprime o maior e o menor inteiro no grupo. 
+
+#include <iostream>
+
+int main() {
+    int num1, num2, num3, num4, num5;
+
+    // Solicita ao usuário inserir cinco números inteiros
+    std::cout << "Insira cinco números inteiros: ";
+    std::cin >> num1 >> num2 >> num3 >> num4 >> num5;
+
+    // Inicializa o maior e o menor com o primeiro número
+    int maior = num1;
+    int menor = num1;
+
+    // Verifica e atualiza o maior e o menor
+    if (num2 > maior) {
+        maior = num2;
+    }if (num2 < menor) {
+        menor = num2;
+    }if (num3 > maior) {
+        maior = num3;
+    }if (num3 < menor) {
+        menor = num3;
+    }if (num4 > maior) {
+        maior = num4;
+    }if (num4 < menor) {
+        menor = num4;
+    }if (num5 > maior) {
+        maior = num5;
+    }if (num5 < menor) {
+        menor = num5;
+    }
+
+    // Imprime o maior e o menor
+    std::cout << "O maior número é: " << maior << std::endl;
+    std::cout << "O menor número é: " << menor << std::endl;
+
+    return 0;
+}
+
+Ex 2.24
+
+Escreva um programa que lê um inteiro e determina e imprime se ele é ímpar ou par.
+
+#include <iostream>
+
+int main() {
+    int numero;
+
+    // Solicita ao usuário inserir um número inteiro
+    std::cout << "Insira um número inteiro: ";
+    std::cin >> numero;
+
+    // Verifica se o número é ímpar ou par
+    if (numero % 2 == 0) {
+        std::cout << "O número " << numero << " é par." << std::endl;
+    } else {
+        std::cout << "O número " << numero << " é ímpar." << std::endl;
+    }
+
+    return 0;
+}
+
+Ex 2.25
+
+Escreva um programa que lê dois inteiros e determina e imprime se o primeiro é um múltiplo do segundo
+
+#include <iostream>
+
+int main() {
+    int numero1, numero2;
+
+    // Solicita ao usuário inserir os dois números inteiros
+    std::cout << "Insira o primeiro número inteiro: ";
+    std::cin >> numero1;
+
+    std::cout << "Insira o segundo número inteiro: ";
+    std::cin >> numero2;
+
+    // Verifica se o primeiro número é um múltiplo do segundo
+    if (numero2 != 0 && numero1 % numero2 == 0) {
+        std::cout << numero1 << " é um múltiplo de " << numero2 << std::endl;
+    } else {
+        std::cout << numero1 << " não é um múltiplo de " << numero2 << std::endl;
+    }
+
+    return 0;
+}
