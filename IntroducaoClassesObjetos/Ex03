@@ -1,0 +1,34 @@
+/*
+3. Use a classe Pixel, criada no Exercício 2, para desenvolver um programa chamado TestarPixel com o
+objetivo de testar todos os métodos dessa classe.
+*/
+
+#include <iostream>
+#include <clocale>
+#include "Pixel.h"
+
+using namespace std;
+
+int main() {
+    setlocale(LC_ALL, "pt-BR");
+    // Criando um objeto Pixel com o construtor padrão
+    Pixel pixel1;
+    cout << "Coordenadas do pixel1: " << pixel1.toString() << endl;
+
+    // Criando um objeto Pixel com coordenadas personalizadas
+    Pixel pixel2(5, 10);
+    cout << "Coordenadas do pixel2: " << pixel2.toString() << endl;
+
+    // Obtendo e exibindo as coordenadas de pixel2
+    unsigned int x = pixel2.getX();
+    unsigned int y = pixel2.getY();
+    cout << "Coordenada x de pixel2: " << x << endl;
+    cout << "Coordenada y de pixel2: " << y << endl;
+
+    // Modificando as coordenadas de pixel1
+    pixel1.setX(3);
+    pixel1.setY(7);
+    cout << "Coordenadas de pixel1 após modificação: " << pixel1.toString() << endl;
+
+    return 0;
+}
