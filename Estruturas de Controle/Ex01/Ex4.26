@@ -1,0 +1,78 @@
+/*
+Um palíndromo é um número ou uma frase de texto que é lido da mesma forma da esquerda para a direita
+e da direita para a esquerda. Por exemplo, cada um dos seguintes inteiros 
+de cinco dígitos é um palíndromo: 12321, 55555, 45554 e 11611. 
+Escreva um programa que lê em um inteiro de cinco dígitos e determine se ele é ou não um palíndromo. 
+[Dica: Utilize os operadores de divisão e módulo para separar o número em seus dígitos individuais.]
+*/
+
+//palindromo.h
+#pragma once
+#ifndef PALINDROMO_H
+#define PALINDROMO_H
+
+class Palindromo {
+public:
+    Palindromo(int num);
+    bool isPalindromo();
+    int getNumero() const;
+    
+private:
+    int numero;
+};
+
+#endif
+
+//palindromo.cpp
+#include "Palindromo.h"
+
+Palindromo::Palindromo(int num) {
+    numero = num;
+}
+
+bool Palindromo::isPalindromo() {
+    int originalNum = numero;
+    int reversedNum = 0;
+
+    while (numero > 0) {
+        int digito = numero % 10;
+        reversedNum = reversedNum * 10 + digito;
+        numero /= 10;
+    }
+
+    return originalNum == reversedNum;
+}
+
+int Palindromo::getNumero() const {
+    return numero;
+}
+
+//testarPalindromo.cpp
+#include <clocale>
+#include <iostream>
+#include "Palindromo.h"
+
+using namespace std;
+
+int main() {
+    setlocale(LC_ALL, "pt-BR");
+    int numero;
+
+    cout << "Digite um número de cinco dígitos: ";
+    cin >> numero;
+
+    if (numero >= 10000 && numero <= 99999) {
+        Palindromo palindromo(numero);
+        if (palindromo.isPalindromo()) {
+            cout << "O número é um palíndromo." << endl;
+        }
+        else {
+            cout << "O número não é um palíndromo." << endl;
+        }
+    }
+    else {
+        cout << "O número digitado não tem cinco dígitos." << endl;
+    }
+
+    return 0;
+}
