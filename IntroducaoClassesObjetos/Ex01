@@ -1,0 +1,277 @@
+1. Resolva os exercícios abaixo do Capítulo 3 - Introdução a classes e objetos - do livro C++ Como
+Programar. 5ª ed. DEITEL, H. M., DEITEL, P. J. São Paulo: Pearson Prentice Hall, 2006.
+Exercícios 3.5 a 3.10, 3.12
+
+Ex 3.5
+Explique a diferença entre um protótipo de função e uma definição de função.
+
+Protótipo de Função:
+Um protótipo de função é uma declaração antecipada da função antes de sua definição real no código.
+Ele fornece informações sobre o nome da função, seus parâmetros e o tipo de retorno.
+Geralmente, os protótipos de função são colocados no início do código-fonte, muitas vezes em arquivos de cabeçalho (.h), 
+para permitir que outras partes do programa saibam da existência da função.
+Os protótipos de função ajudam o compilador a verificar a chamada de função e garantir que os argumentos passados correspondam ao que a função espera.
+Eles são úteis quando várias funções se chamam umas às outras ou quando a função está definida após sua primeira chamada no código.
+Exemplo de um protótipo de função:
+      int somar(int a, int b);
+
+Definição de Função:
+A definição de função é a implementação real da função, onde o código que realiza uma tarefa específica está contido.
+Ela inclui o nome da função, seus parâmetros, um tipo de retorno (se houver) e o corpo da função, que é o conjunto de instruções que a função executa.
+As definições de função são onde a lógica da função é escrita.
+Em C++ e muitas outras linguagens, a definição de função pode estar em qualquer lugar do código, mas ela deve ser visível antes da primeira chamada da função no programa.
+Exemplo de uma definição de função:
+      int somar(int a, int b) {
+          return a + b;
+      }
+
+Ex 3.6
+O que é um construtor-padrão? Como os membros de dados de um objeto são inicializados se uma classe tiver apenas um construtorpadrão implicitamente definido?
+
+Um construtor-padrão, também conhecido como construtor default, é um tipo de construtor em uma classe que é usado para criar objetos daquela classe 
+sem fornecer argumentos explícitos durante a criação do objeto. Em C++, se você não fornecer nenhum construtor personalizado em uma classe, 
+o compilador C++ implicitamente define um construtor-padrão para essa classe.
+
+Se uma classe tiver apenas um construtor-padrão implicitemente definido e você criar um objeto dessa classe sem passar argumentos, 
+os membros de dados desse objeto serão inicializados de acordo com as regras de inicialização padrão para seus tipos de dados.
+Aqui estão algumas regras comuns para a inicialização de tipos de dados:
+
+  - Tipos numéricos (int, float, double, etc.): Os tipos numéricos são frequentemente inicializados com zero se nenhum valor inicial for fornecido explicitamente.
+  - Tipos de ponto flutuante (float e double): Geralmente, são inicializados como 0.0 se nenhum valor inicial for especificado.
+  - Tipos de ponteiros (int*, double*, etc.): São inicializados como um ponteiro nulo (geralmente nullptr ou NULL, dependendo do padrão da linguagem) 
+se nenhum valor inicial for especificado.
+
+Objetos de classe personalizados: Se a classe tiver seu próprio construtor-padrão personalizado, os membros da classe podem ser inicializados de acordo com a lógica definida 
+nesse construtor. Se não houver um construtor-padrão personalizado, os membros da classe serão inicializados de acordo com suas próprias regras de inicialização padrão.
+
+Por exemplo, se tivermos uma classe chamada "Pessoa" com apenas o construtor-padrão implicitemente definido:
+class Pessoa {
+public:
+    // Construtor-padrão implicitemente definido
+    Pessoa() {
+        // Nenhum inicializador personalizado aqui
+    }
+
+    // Outros membros e métodos da classe
+    // ...
+};
+Se você criar um objeto "Pessoa" sem fornecer argumentos, os membros de dados da classe (por exemplo, inteiros, ponteiros, etc.) serão inicializados de acordo 
+com as regras de inicialização padrão para esses tipos de dados.
+
+Lembre-se de que é uma boa prática definir construtores personalizados quando sua classe exige inicializações específicas para seus membros. 
+Dessa forma, você tem mais controle sobre como os objetos da classe são criados.
+
+Ex 3.7
+Explique o propósito de um membro de dados.
+
+Em programação orientada a objetos (POO), um membro de dados, também conhecido como atributo ou variável membro, é uma variável que faz parte de uma classe. 
+Os membros de dados são usados para armazenar informações específicas associadas a objetos criados a partir dessa classe. 
+Eles são uma parte fundamental da definição de uma classe e desempenham um papel importante no encapsulamento, 
+na representação de dados e na modelagem de objetos do mundo real. Aqui estão os principais propósitos de um membro de dados:
+
+- Armazenamento de Dados: Os membros de dados são usados para armazenar informações que são relevantes para os objetos da classe. 
+Isso permite que os objetos retenham e mantenham informações específicas.
+- Modelagem de Objetos: Os membros de dados ajudam a modelar objetos do mundo real em seu programa. 
+Por exemplo, se você estiver criando uma classe "Carro", os membros de dados podem incluir informações como modelo, cor, ano de fabricação e assim por diante.
+- Estado do Objeto: Os membros de dados representam o estado do objeto. Cada objeto pode ter seu próprio conjunto de valores de membros de dados, 
+o que permite que objetos da mesma classe tenham estados diferentes.
+- Encapsulamento: Os membros de dados são muitas vezes definidos como privados ou protegidos na classe, o que promove o princípio de encapsulamento. 
+significa que o acesso direto aos membros de dados é restrito, e a classe fornece métodos públicos (métodos de acesso) para ler e modificar esses membros.
+Isso ajuda a proteger a integridade dos dados e a manter o controle sobre como os dados são manipulados.
+- Definição da Estrutura da Classe: Os membros de dados fazem parte da definição da estrutura da classe. Eles descrevem os componentes essenciais de um objeto da classe.
+- Facilitação da Reutilização de Código: Ao definir uma classe com membros de dados, você pode criar objetos dessa classe em diferentes partes do seu programa, 
+o que facilita a reutilização do código.
+- Abstração: Os membros de dados ajudam na abstração, que é a representação de informações complexas de uma maneira mais simplificada. 
+Eles permitem que você se concentre apenas nas informações relevantes para o problema que está resolvendo.
+
+Em resumo, os membros de dados são elementos fundamentais na definição de uma classe e desempenham um papel crucial na modelagem de objetos e na representação de dados. 
+Eles permitem que você crie objetos que representem entidades do mundo real e forneçam um meio de armazenar e acessar informações específicas relacionadas a essas entidades.
+
+Ex 3.8
+O que é um arquivo de cabeçalho? O que é um arquivo de código-fonte? Discuta o propósito de cada.
+
+Arquivos de cabeçalho e arquivos de código-fonte são elementos fundamentais na organização de programas de computador, 
+especialmente em linguagens de programação como C++ e C. Eles têm propósitos diferentes e desempenham papéis específicos na estrutura de um projeto de software.
+
+Arquivo de Cabeçalho (Header File):
+
+- Propósito: Um arquivo de cabeçalho é usado para declarar e fornecer informações sobre a interface pública de uma unidade de código, geralmente uma classe, função ou módulo. 
+Ele não contém a implementação real (código) dessa unidade, mas descreve o que a unidade faz e como pode ser usada.
+
+- Conteúdo: Normalmente, um arquivo de cabeçalho contém declarações de classes, funções, variáveis globais, estruturas de dados e constantes, 
+juntamente com protótipos de funções e métodos. Ele também pode incluir comentários e documentação que explicam o propósito e o uso da unidade de código.
+
+- Extensão de arquivo: Os arquivos de cabeçalho geralmente têm a extensão ".h" em C/C++ e ".hpp" ou ".h" em C++. 
+No entanto, a extensão real pode variar dependendo das convenções de nomenclatura.
+
+- Objetivo: O objetivo principal de um arquivo de cabeçalho é fornecer uma interface clara para o código que utiliza a unidade de código declarada no arquivo.
+Isso ajuda na modularização do código, permitindo que partes diferentes do programa se comuniquem de maneira eficaz sem precisar conhecer os detalhes de implementação.
+
+Arquivo de Código-Fonte (Source File):
+
+- Propósito: Um arquivo de código-fonte contém a implementação real de uma unidade de código (função, classe, etc.). 
+Ele contém o código que é executado quando a unidade é usada. A implementação inclui as instruções reais que realizam a lógica da unidade de código.
+
+- Conteúdo: Um arquivo de código-fonte contém a lógica do programa, que inclui declarações de variáveis, expressões, loops, condicionais e chamadas de funções ou métodos. 
+Aqui é onde o "trabalho" real é feito.
+
+- Extensão de arquivo: Os arquivos de código-fonte geralmente têm extensões comuns, como ".c" para C ou ".cpp" para C++.
+No entanto, a extensão também pode variar de acordo com as convenções de nomenclatura e a linguagem de programação.
+
+- Objetivo: O objetivo de um arquivo de código-fonte é implementar a lógica das unidades de código definidas nos arquivos de cabeçalho.
+Ele fornece os detalhes de como as funções ou classes funcionam e realiza as tarefas específicas associadas a elas.
+
+Em resumo, os arquivos de cabeçalho são usados para declarar a interface pública de unidades de código e fornecer informações sobre como usá-las. 
+Os arquivos de código-fonte contêm a implementação real dessas unidades e descrevem o que elas fazem. 
+A separação entre os dois tipos de arquivos ajuda na modularização do código, facilita a manutenção e promove a reutilização do código.
+
+Ex 3.9
+Explique como um programa poderia utilizar a classe string sem inserir uma declaração using.
+
+Você pode usar a classe std::string em um programa C++ sem inserir uma declaração using específica, como using namespace std;. 
+No entanto, para fazer isso, você deve usar o operador de resolução de escopo :: para acessar a classe string a partir do namespace std sempre que você quiser usá-la. 
+Aqui está um exemplo de como fazer isso:
+
+#include <iostream>
+
+int main() {
+    // Usando std::string sem declarar "using namespace std;"
+    std::string texto = "Isso é uma string.";
+
+    // Imprimindo a string
+    std::cout << texto << std::endl;
+
+    return 0;
+}
+
+Ex 3.10
+Explique por que uma classe poderia fornecer uma função set e uma função get para um membro de dados.
+
+- Controle de Acesso: As funções set e get permitem que uma classe controle como seus membros de dados são acessados e modificados. 
+Ao fornecer métodos específicos para ler (get) e modificar (set) os membros de dados, a classe pode impor regras e lógica personalizada, se necessário, 
+para garantir que os dados sejam acessados e modificados corretamente.
+
+- Validação de Dados: As funções set podem ser usadas para validar os dados antes de atribuí-los a um membro da classe. 
+Isso ajuda a garantir que os dados estejam em um estado válido e coerente. Se os dados não atenderem aos critérios de validação, 
+a função set pode rejeitar a atribuição ou tomar medidas apropriadas.
+
+- Encapsulação: As funções set e get são uma parte fundamental do conceito de encapsulação, que é um dos princípios da programação orientada a objetos (POO).
+A encapsulação impede que o código externo acesse diretamente os membros de dados de uma classe, tornando o código mais seguro e evitando dependências externas 
+nos detalhes de implementação da classe.
+
+- Flexibilidade e Evolução: Fornecer funções set e get permite que você faça alterações internas na classe (por exemplo, na representação de dados)
+sem afetar o código externo que usa a classe. Isso fornece flexibilidade e facilita a manutenção e a evolução do código.
+
+- Logging e Depuração: As funções set podem ser usadas para adicionar lógica de logging e depuração. Por exemplo, você pode registrar todas as alterações feitas
+em um membro de dados sempre que a função set for chamada, o que é útil para rastrear o histórico de modificações.
+
+- Acesso Restrito: Algumas vezes, certos membros de dados precisam ser acessíveis apenas para leitura (get) e não devem ser modificados externamente. 
+As funções set podem ser definidas como privadas ou protegidas para garantir que somente a própria classe possa modificá-los.
+
+Em resumo, as funções set e get em uma classe oferecem uma camada de controle, validação e encapsulação para os membros de dados da classe. 
+Elas são essenciais para criar classes robustas, seguras e flexíveis em programação orientada a objetos.
+
+Ex 3.12
+
+Crie uma classe chamada Account que um banco poderia utilizar para representar contas bancárias dos clientes. 
+Sua classe deve incluir um membro de dados de tipo int para representar o saldo da conta.  
+Sua classe deve fornecer um construtor que recebe um saldo inicial e o utiliza para inicializar o membro de dados. 
+O construtor deve validar o saldo inicial para assegurar que ele seja maior que ou igual a 0. 
+Se não, o saldo deve ser configurado como 0 e o construtor deve exibir uma mensagem de erro, indicando que o saldo inicial era inválido.
+A classe deve fornecer três funções-membro. 
+A função membro credit deve adicionar uma quantia ao saldo atual. 
+A função-membro debit deve retirar o dinheiro de Account e assegurar que a quantia de débito não exceda o saldo de Account. 
+Se exceder, o saldo deve permanecer inalterado e a função deve imprimir uma mensagem que indica “Debit amount exceeded account balance.” 
+A função-membro getBalance deve retornar o saldo atual.
+
+//account.h
+#pragma once
+#ifndef ACCOUNT_H
+#define ACCOUNT_H
+
+class Account {
+public:
+    // Construtor que recebe um saldo inicial
+    Account(int initialBalance);
+
+    // Função para adicionar uma quantia ao saldo (crédito)
+    void credit(int amount);
+
+    // Função para retirar uma quantia do saldo (débito)
+    void debit(int amount);
+
+    // Função para obter o saldo atual
+    int getBalance() const;
+
+private:
+    int balance; // Membro de dados para armazenar o saldo
+
+    // Função privada para validar o saldo inicial
+    int validateInitialBalance(int initialBalance);
+};
+
+#endif
+
+#include "Account.h"
+#include <iostream>
+
+// Construtor
+Account::Account(int initialBalance) {
+    balance = validateInitialBalance(initialBalance);
+}
+
+// Função para adicionar uma quantia ao saldo
+void Account::credit(int amount) {
+    balance += (amount > 0) ? amount : 0;
+}
+
+// Função para retirar uma quantia do saldo
+void Account::debit(int amount) {
+    if (amount > balance) {
+        std::cout << "Quantia do débito excedeu o saldo da conta." << std::endl;
+    }
+    else {
+        balance -= (amount > 0) ? amount : 0;
+    }
+}
+
+// Função para obter o saldo atual
+int Account::getBalance() const {
+    return balance;
+}
+
+// Função privada para validar o saldo inicial
+int Account::validateInitialBalance(int initialBalance) {
+    if (initialBalance >= 0) {
+        return initialBalance;
+    }
+    else {
+        std::cout << "Saldo inicial inválido. Configurando o saldo para 0." << std::endl;
+        return 0;
+    }
+}
+
+//main.cpp
+#include <iostream>
+#include <clocale>
+#include "Account.h"
+
+int main() {
+    setlocale(LC_ALL, "pt-BR");
+    // Cria duas contas com saldos iniciais
+    Account account1(1000);
+    Account account2(-500);
+
+    // Testa as funções-membro da classe Account
+    std::cout << "Conta 1 Saldo: " << account1.getBalance() << std::endl;
+    account1.credit(500);
+    std::cout << "Conta 1 Saldo após o crédito: " << account1.getBalance() << std::endl;
+    account1.debit(300);
+    std::cout << "Conta 1 Saldo após o débito: " << account1.getBalance() << std::endl;
+
+    std::cout << "Conta 2 Saldo: " << account2.getBalance() << std::endl;
+    account2.debit(700);
+    std::cout << "Conta 2 Saldo após débito: " << account2.getBalance() << std::endl;
+
+    return 0;
+}
