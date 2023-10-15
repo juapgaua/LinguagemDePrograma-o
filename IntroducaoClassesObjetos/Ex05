@@ -1,0 +1,32 @@
+/*
+5. Use a classe Livro, criada no Exercício 4, para desenvolver um programa chamado TestarLivro com o
+objetivo de testar todos os métodos dessa classe.
+*/
+
+#include <clocale>
+#include <iostream>
+#include "livro.h"
+
+using namespace std;
+
+int main() {
+    setlocale(LC_ALL, "pt-BR");
+    // Criando um objeto Livro com o construtor padrão
+    Livro livro1;
+    cout << "Livro 1:\n" << livro1.toString() << "\n";
+
+    // Criando um objeto Livro com valores especificados
+    Livro livro2(123, "O Senhor dos Anéis", 29.99, "J.R.R. Tolkien", "Editora XYZ");
+    cout << "Livro 2:\n" << livro2.toString() << "\n";
+
+    // Testando os métodos de consulta (get) e modificação (set)
+    livro1.setCodigo(456);
+    livro1.setTitulo("Harry Potter");
+    livro1.setPreco(19.95);
+    livro1.setAutor("J.K. Rowling");
+    livro1.setEditora("Editora ABC");
+
+    cout << "Livro 1 após modificação:\n" << livro1.toString() << "\n";
+
+    return 0;
+}
