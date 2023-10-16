@@ -1,0 +1,41 @@
+Descreva em 200 palavras ou menos o que um automóvel é e o que faz. 
+Liste os substantivos e verbos separadamente. 
+No texto, afirmamos que cada substantivo corresponde a um objeto que precisará ser construído para implementar um sistema, 
+nesse caso um carro. Selecione cinco dos objetos que você listou e, para cada um, liste vários atributos e comportamentos. 
+Descreva brevemente como esses objetos interagem entre si e com outros objetos na sua descrição. 
+Você acabou de seguir vários dos passos-chave em um projeto orientado a objetos típico.
+
+Um automóvel é um veículo motorizado projetado para transporte terrestre de pessoas e carga. 
+Ele é composto por uma série de componentes e sistemas que trabalham juntos para realizar diversas funções. 
+Substantivos: automóvel, motor, rodas, volante, freios, transmissão, suspensão, faróis, combustível, chassi, carroceria, bancos, painel.
+Verbos: dirige, acelera, freia, vira, estaciona, transporta.
+
+Dentre os objetos mencionados, vou escolher o motor, as rodas, o volante, os freios e a suspensão.
+
+Motor: 
+Atributos - cilindros, potência, torque; 
+Comportamentos - gira, queima combustível, produz energia.
+
+Rodas: 
+Atributos - diâmetro, pneus, material; 
+Comportamentos - giram, rolam, proporcionam tração.
+
+Volante: 
+Atributos - diâmetro, material, botões de controle; 
+Comportamentos - gira para direcionar, ativa controles.
+
+Freios: 
+Atributos - pastilhas, discos, sistema de frenagem; 
+Comportamentos - pressiona pastilhas contra discos, reduz velocidade.
+
+Suspensão: 
+Atributos - molas, amortecedores, altura; 
+Comportamentos - absorve impactos, mantém contato com o solo.
+
+Esses objetos interagem de maneira coordenada para realizar funções específicas do carro. 
+O motor fornece energia às rodas para impulsionar o veículo.
+O volante permite ao motorista direcionar o automóvel, enquanto os freios controlam a velocidade e a parada. 
+A suspensão suaviza o impacto das irregularidades da estrada, garantindo o conforto dos ocupantes. 
+Os sistemas estão interconectados, e o funcionamento integrado é essencial para a operação eficaz do automóvel. 
+Esse processo segue os princípios de um projeto orientado a objetos, onde os objetos individuais têm atributos 
+e comportamentos distintos, mas trabalham em conjunto para alcançar um objetivo comum.
