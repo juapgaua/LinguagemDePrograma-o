@@ -1,0 +1,95 @@
+/*
+(Criptografia) Uma empresa quer transmitir dados por telefone, 
+mas está preocupada com a possibilidade de seus telefones estarem
+grampeados. Todos os dados são transmitidos como inteiros de quatro dígitos. 
+A empresa solicitou que escrevêssemos um programa que encriptasse dados para 
+que pudessem ser transmitidos com maior segurança. Seu programa deve ler um inteiro de quatro dígitos e
+encriptá-lo como mostrado a seguir: Substitua cada dígito pelo (a soma desse dígito mais 7) módulo 10. 
+Em seguida, troque o primeiro dígito pelo terceiro, o segundo dígito pelo quarto e 
+imprima o inteiro encriptado. Escreva um programa separado que aceita como entrada
+um inteiro de quatro dígitos criptografado e o descriptografe para formar o número original.
+*/
+
+//criptografia.h
+#pragma once
+#ifndef CRIPTOGRAFIA_H
+#define CRIPTOGRAFIA_H
+
+class Criptografia {
+public:
+    static int Criptografar(int numero);
+    static int Descriptografar(int numero);
+};
+
+#endif
+
+//criptografia.cpp
+#include "criptografia.h"
+
+int Criptografia::Criptografar(int numero) {
+    // Extrai os dígitos
+    int digito1 = numero / 1000;
+    int digito2 = (numero / 100) % 10;
+    int digito3 = (numero / 10) % 10;
+    int digito4 = numero % 10;
+
+    // Aplica a criptografia
+    digito1 = (digito1 + 7) % 10;
+    digito2 = (digito2 + 7) % 10;
+    digito3 = (digito3 + 7) % 10;
+    digito4 = (digito4 + 7) % 10;
+
+    // Troca os dígitos
+    int numeroCriptografado = (digito3 * 1000) + (digito4 * 100) + (digito1 * 10) + digito2;
+
+    return numeroCriptografado;
+}
+
+int Criptografia::Descriptografar(int numero) {
+    // Extrai os dígitos
+    int digito1 = numero / 1000;
+    int digito2 = (numero / 100) % 10;
+    int digito3 = (numero / 10) % 10;
+    int digito4 = numero % 10;
+
+    // Descriptografa
+    digito1 = (digito1 + 3) % 10;
+    digito2 = (digito2 + 3) % 10;
+    digito3 = (digito3 + 3) % 10;
+    digito4 = (digito4 + 3) % 10;
+
+    // Troca os dígitos de volta
+    int numeroDescriptografado = (digito3 * 1000) + (digito4 * 100) + (digito1 * 10) + digito2;
+
+    return numeroDescriptografado;
+}
+
+//testarCriptografia.cpp
+#include <clocale>
+#include <iostream>
+#include "criptografia.h"
+
+using namespace std;
+
+int main() {
+    setlocale(LC_ALL, "pt-BR");
+    int numeroOriginal, numeroCriptografado, numeroDescriptografado;
+
+    // Leitura de um número de 4 dígitos
+    cout << "Digite um número de 4 dígitos: ";
+    cin >> numeroOriginal;
+
+    // Criptografar o número
+    numeroCriptografado = Criptografia::Criptografar(numeroOriginal);
+
+    // Exibir o número criptografado
+    cout << "Número criptografado: " << numeroCriptografado << endl;
+
+    // Descriptografar o número
+    numeroDescriptografado = Criptografia::Descriptografar(numeroCriptografado);
+
+    // Exibir o número descriptografado
+    cout << "Número descriptografado: " << numeroDescriptografado << endl;
+
+    return 0;
+}
