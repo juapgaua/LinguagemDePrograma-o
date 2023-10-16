@@ -1,0 +1,71 @@
+/*
+2. O valor aproximado de pi pode ser calculado usando-se uma determinada série matemática.
+Para um número N, inteiro e positivo, fornecido pelo usuário, desenvolva um programa chamado
+GerarNumeroPi para calcular e exibir o valor de pi. 
+Use a interface da classe abaixo para implementá-lo.
+*/
+
+//GerarNumeroPi.h
+#pragma once
+class Pi {
+private:
+	double valor = 0;
+public:
+	// Calcula o valor de Pi usando a fórmula matemática acima, onde n é igual N nessa fórmula.
+	Pi(unsigned int n);
+	// Obtém o valor de pi.
+	double pi();
+};
+/*
+É possível calcular o valor de pi com o mesmo número de casas decimais da constante1 M_PI
+definida no arquivo de cabeçalho cmath ?
+
+Resposta: Sim, é possível calcular o valor de π com o mesmo número de casas decimais
+da constante M_PI definida no arquivo de cabeçalho <cmath>. 
+No entanto, a precisão do cálculo depende do valor de N que você escolher para a série matemática. 
+Quanto maior o valor de N, maior será a precisão do cálculo. 
+A constante M_PI em <cmath> geralmente tem uma precisão de ponto flutuante de pelo menos 15 dígitos, 
+o que é mais do que suficiente para a maioria das aplicações.
+*/
+
+//GerarNumeroPi.cpp
+#include "GerarNumeroPi.h"
+#include <cmath>
+
+Pi::Pi(unsigned int n) {
+    valor = 0.0;
+    for (unsigned int i = 0; i < n; i++) {
+        int sign = (i % 2 == 0) ? 1 : -1;
+        double term = 1.0 / (2 * i + 1);
+        valor += sign * term * term * term;
+    }
+    valor = std::cbrt(32.0 * valor);
+}
+
+double Pi::pi() {
+    return valor;
+}
+
+//TestarGerarNumeroPi.cpp
+#include <iostream>
+#include <clocale>
+#include "GerarNumeroPi.h"
+#include <cmath>
+
+using namespace std;
+
+int main() {
+    setlocale(LC_ALL, "pt-BR");
+    unsigned int n;
+    const double M_PI = 3.14159265358979323846;
+    cout << "Digite o valor de N: ";
+    cin >> n;
+
+    Pi piApproximation(n);
+    double piValue = piApproximation.pi();
+
+    cout << "Valor aproximado de pi: " << piValue << endl;
+    cout << "Valor de pi a partir de <cmath>: " << M_PI << endl;
+
+    return 0;
+}
